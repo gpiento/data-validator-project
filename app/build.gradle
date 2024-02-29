@@ -46,13 +46,6 @@ dependencies {
     //runtimeOnly 'com.adarshr:gradle-test-logger-plugin:4.0.0'
 }
 
-// Apply a specific Java toolchain to ease working on different environments.
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-    }
-}
-
 group = 'hexlet.code'
 version = '1.0-SNAPSHOT'
 
@@ -90,6 +83,10 @@ tasks.register("runGradlew") {
             commandLine("bash", "${rootProject.projectDir}/gradlew")
         }
     }
+}
+
+checkstyle {
+    configFile = file("config/checkstyle/checkstyle.xml")
 }
 
 /*testlogger {
