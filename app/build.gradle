@@ -9,11 +9,11 @@ plugins {
     id 'application'
     id 'checkstyle'
     id 'jacoco'
-    //id 'com.adarshr.test-logger' version '4.0.0'
+    id 'com.adarshr.test-logger' version '4.0.0'
 }
 
 repositories {
-    //gradlePluginPortal()
+    gradlePluginPortal()
     // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
