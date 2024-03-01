@@ -20,7 +20,7 @@ repositories {
 
 dependencies {
     // This dependency is used by the application.
-    implementation libs.guava
+    //implementation libs.guava
 
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
     //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
