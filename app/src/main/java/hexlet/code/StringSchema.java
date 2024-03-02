@@ -2,19 +2,30 @@ package hexlet.code;
 
 public class StringSchema {
 
+    private boolean required;
+    private int minLength;
+    private String contains;
+    private boolean isValid;
+
     public StringSchema required() {
-        return null;
+
+        required = true;
+        return this;
     }
 
     public StringSchema minLength(int length) {
-        return null;
+
+        minLength = length;
+        return this;
     }
 
     public StringSchema contains(String substring) {
-        return null;
+
+        contains = substring;
+        return this;
     }
 
     public StringSchema isValid() {
-        return null;
+        return this;
     }
 }
