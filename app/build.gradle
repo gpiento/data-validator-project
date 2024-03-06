@@ -19,27 +19,16 @@ repositories {
 }
 
 dependencies {
-    // This dependency is used by the application.
-    //implementation libs.guava
-
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
-    //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
-    //testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:5.10.2'
     // https://mvnrepository.com/artifact/org.junit/junit-bom
-    //testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation platform('org.junit:junit-bom:5.10.2')
     // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.2'
     // https://mvnrepository.com/artifact/org.junit.platform/junit-platform-launcher
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'
-    // https://mvnrepository.com/artifact/info.picocli/picocli
-    //implementation 'info.picocli:picocli:4.7.5'
-    // https://mvnrepository.com/artifact/info.picocli/picocli-codegen
-    //implementation 'info.picocli:picocli-codegen:4.7.5'
-    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
-    //implementation 'com.fasterxml.jackson.core:jackson-databind:2.16.1'
-    // https://mvnrepository.com/artifact/com.fasterxml.jackson.dataformat/jackson-dataformat-yaml
-    //implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.16.1'
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation 'commons-io:commons-io:2.15.1'
     // https://mvnrepository.com/artifact/com.adarshr/gradle-test-logger-plugin
@@ -70,12 +59,6 @@ jacocoTestReport {
         csv.required = false
     }
 }
-
-/*
-task runGradlew(type: Exec) {
-    commandLine 'bash', "${rootProject.projectDir}/gradlew"
-}
-*/
 
 tasks.register("runGradlew") {
     doLast {
