@@ -25,7 +25,12 @@ public class StringSchema {
         return this;
     }
 
-    public StringSchema isValid() {
-        return this;
+    public boolean isValid() {
+        return true;
     }
+
+    public boolean isValid(String string) {
+        return true;
+    }
+
 }
