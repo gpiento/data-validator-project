@@ -43,7 +43,7 @@ application {
     mainClass = 'hexlet.code.App'
 }
 
-tasks.named('test', Test) {
+test {
     useJUnitPlatform()
     finalizedBy jacocoTestReport // report is always generated after tests run
 }
