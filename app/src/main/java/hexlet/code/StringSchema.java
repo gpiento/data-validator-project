@@ -8,27 +8,21 @@ public class StringSchema {
     ArrayList<Predicate<String>> predicates = new ArrayList<>();
 
     public StringSchema required() {
-        Predicate<String> predicate = s -> {
-            return !s.isEmpty();
-        };
+        Predicate<String> predicate = s -> !s.isEmpty();
         predicates.add(predicate);
         return this;
     }
 
     public StringSchema minLength(int length) {
 
-        Predicate<String> predicate = s -> {
-            return s.length() >= length;
-        };
+        Predicate<String> predicate = s -> s.length() >= length;
         predicates.add(predicate);
         return this;
     }
 
     public StringSchema contains(String substring) {
 
-        Predicate<String> predicate = s -> {
-            return s.contains(substring);
-        };
+        Predicate<String> predicate = s -> s.contains(substring);
         predicates.add(predicate);
         return this;
     }
