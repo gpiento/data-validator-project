@@ -1,35 +1,45 @@
 package hexlet.code;
 
+import java.util.ArrayList;
+import java.util.function.Predicate;
+
 public class StringSchema {
 
-    private boolean required;
-    private int minLength;
-    private String contains;
-    private boolean isValid;
+    ArrayList<Predicate<String>> predicates = new ArrayList<>();
 
     public StringSchema required() {
-
-        required = true;
+        Predicate<String> predicate = s -> {
+            return !s.isEmpty();
+        };
+        predicates.add(predicate);
         return this;
     }
 
     public StringSchema minLength(int length) {
 
-        minLength = length;
+        Predicate<String> predicate = s -> {
+            return s.length() >= length;
+        };
+        predicates.add(predicate);
         return this;
     }
 
     public StringSchema contains(String substring) {
 
-        contains = substring;
+        Predicate<String> predicate = s -> {
+            return s.contains(substring);
+        };
+        predicates.add(predicate);
         return this;
     }
 
-    public boolean isValid() {
-        return true;
-    }
-
     public boolean isValid(String string) {
+
+        for (Predicate<String> predicate : predicates) {
+            if (!predicate.test(string)) {
+                return false;
+            }
+        }
         return true;
     }
 
