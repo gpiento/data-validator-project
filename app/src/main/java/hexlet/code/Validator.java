@@ -6,8 +6,9 @@ public class Validator {
 
         Validator v = new Validator();
         StringSchema schema = v.string().required().minLength(5).contains("hex");
-        schema.isValid("hello"); // false
-        schema.isValid("hexlet"); // true}
+        System.out.println(schema.isValid("")); // false
+        System.out.println(schema.isValid("asdfsdsd")); // false
+        System.out.println(schema.isValid("asdhexsdf")); // true}
     }
 
     public StringSchema string() {
