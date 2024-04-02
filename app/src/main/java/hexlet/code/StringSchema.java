@@ -8,7 +8,7 @@ public class StringSchema {
     ArrayList<Predicate<String>> predicates = new ArrayList<>();
 
     public StringSchema required() {
-        Predicate<String> predicate = s -> !s.isEmpty();
+        Predicate<String> predicate = s -> s != null && !s.isEmpty();
         predicates.add(predicate);
         return this;
     }
