@@ -8,7 +8,7 @@ public class Validator {
         StringSchema schema = v.string().required().minLength(5).contains("hex");
         System.out.println(schema.isValid("")); // false
         System.out.println(schema.isValid("asdfsdsd")); // false
-        System.out.println(schema.isValid("asdhexsdf")); // true}
+        System.out.println(schema.isValid("asdhexsdf")); // true
     }
 
     public StringSchema string() {
