@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.schemas.StringSchema;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -42,7 +43,7 @@ class StringSchemaTest {
     }
 
     @Test
-    void allValidations() {
+    void allValidationsString() {
         Validator v = new Validator();
         StringSchema schema = v.string().required().minLength(5).contains("hex");
         assertTrue(schema.isValid("hexlet"));

@@ -1,11 +1,9 @@
-package hexlet.code;
+package hexlet.code.schemas;
 
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
-public class StringSchema {
-
-    ArrayList<Predicate<String>> predicates = new ArrayList<>();
+public class StringSchema extends BaseSchema<String> {
 
     public StringSchema required() {
         Predicate<String> predicate = s -> s != null && !s.isEmpty();
@@ -26,15 +24,4 @@ public class StringSchema {
         predicates.add(predicate);
         return this;
     }
-
-    public boolean isValid(String string) {
-
-        for (Predicate<String> predicate : predicates) {
-            if (!predicate.test(string)) {
-                return false;
-            }
-        }
-        return true;
-    }
-
 }
