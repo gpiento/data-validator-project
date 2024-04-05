@@ -7,7 +7,7 @@ public class NumberSchema extends BaseSchema<Number> {
 
     public NumberSchema required() {
         Predicate<Number> predicate = Objects::nonNull;
-        predicates.add(predicate);
+        addPredicate(predicate);
         return this;
     }
 
@@ -31,7 +31,7 @@ public class NumberSchema extends BaseSchema<Number> {
             }
             return false;
         };
-        predicates.add(predicate);
+        addPredicate(predicate);
         return this;
     }
 
@@ -40,17 +40,7 @@ public class NumberSchema extends BaseSchema<Number> {
                 number == null
                         || (number.doubleValue() >= min
                         && number.doubleValue() <= max);
-        predicates.add(predicate);
+        addPredicate(predicate);
         return this;
-    }
-
-    public boolean isValid(Number number) {
-
-        for (Predicate<Number> predicate : predicates) {
-            if (!predicate.test(number)) {
-                return false;
-            }
-        }
-        return true;
     }
 }
