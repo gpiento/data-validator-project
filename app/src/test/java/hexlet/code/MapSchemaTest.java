@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.schemas.BaseSchema;
 import hexlet.code.schemas.MapSchema;
 import org.junit.jupiter.api.Test;
 
@@ -39,5 +40,19 @@ class MapSchemaTest {
         MapSchema schema = v.map().required();
         assertTrue(schema.isValid(new HashMap<>()));
         assertFalse(schema.isValid(null));
+    }
+
+    @Test
+    void shape() {
+        Validator v = new Validator();
+        MapSchema schema = v.map().shape(new HashMap<String, BaseSchema<String>>() {{
+                put("key", v.string().required());
+            }});
+        assertTrue(schema.isValid(new HashMap<String, String>() {{
+                put("key", "value");
+            }}));
+        assertFalse(schema.isValid(new HashMap<String, String>() {{
+                put("key", null);
+            }}));
     }
 }
