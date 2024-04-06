@@ -30,10 +30,6 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation 'commons-io:commons-io:2.15.1'
-    // https://mvnrepository.com/artifact/com.adarshr.test-logger/com.adarshr.test-logger.gradle.plugin
-    //implementation 'com.adarshr.test-logger:com.adarshr.test-logger.gradle.plugin:4.0.0'
-
-
 }
 
 group = 'hexlet.code'
