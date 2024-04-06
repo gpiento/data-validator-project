@@ -13,10 +13,8 @@ plugins {
 }
 
 repositories {
-    maven { url "https://plugins.gradle.org/m2/" }
     gradlePluginPortal()
-    // Use Maven Central for resolving dependencies.
-    //mavenCentral()
+    mavenCentral()
 }
 
 dependencies {
