@@ -38,11 +38,6 @@ dependencies {
 group = 'hexlet.code'
 version = '1.0-SNAPSHOT'
 
-application {
-    // Define the main class for the application.
-    mainClass = 'hexlet.code.App'
-}
-
 test {
     useJUnitPlatform()
     finalizedBy jacocoTestReport // report is always generated after tests run
