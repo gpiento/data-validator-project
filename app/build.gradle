@@ -9,7 +9,7 @@ plugins {
     id 'application'
     id 'checkstyle'
     id 'jacoco'
-    //id 'com.adarshr.test-logger' version '4.0.0'
+    id 'com.adarshr.test-logger' version '3.2.0'
 }
 
 repositories {
@@ -30,8 +30,9 @@ dependencies {
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher:1.10.2'
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation 'commons-io:commons-io:2.15.1'
-    // https://mvnrepository.com/artifact/com.adarshr/gradle-test-logger-plugin
-    runtimeOnly 'com.adarshr:gradle-test-logger-plugin:4.0.0'
+    // https://mvnrepository.com/artifact/com.adarshr.test-logger/com.adarshr.test-logger.gradle.plugin
+    implementation("com.adarshr.test-logger:com.adarshr.test-logger.gradle.plugin:3.2.0")
+
 }
 
 group = 'hexlet.code'
@@ -59,7 +60,7 @@ checkstyle {
     toolVersion '8.41'
 }
 
-/*testlogger {
+testlogger {
     theme 'standard'
     showExceptions true
     showStackTraces true
@@ -77,4 +78,4 @@ checkstyle {
     showSkippedStandardStreams true
     showFailedStandardStreams true
     logLevel 'lifecycle'
-}*/
+}
