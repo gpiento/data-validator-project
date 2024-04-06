@@ -9,13 +9,12 @@ plugins {
     id 'application'
     id 'checkstyle'
     id 'jacoco'
-    id 'com.adarshr.test-logger' version '4.0.0'
+    id "com.adarshr.test-logger" version "4.0.0"
 }
 
 repositories {
     gradlePluginPortal()
     mavenCentral()
-    maven { url 'https://repo.xillio.org/artifactory/libs-release-local' }
 }
 
 dependencies {
@@ -32,7 +31,7 @@ dependencies {
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation 'commons-io:commons-io:2.15.1'
     // https://mvnrepository.com/artifact/com.adarshr.test-logger/com.adarshr.test-logger.gradle.plugin
-    implementation 'com.adarshr.test-logger:com.adarshr.test-logger.gradle.plugin:4.0.0'
+    //implementation 'com.adarshr.test-logger:com.adarshr.test-logger.gradle.plugin:4.0.0'
 
 
 }
