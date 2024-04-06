@@ -9,7 +9,7 @@ plugins {
     id 'application'
     id 'checkstyle'
     id 'jacoco'
-    id 'com.adarshr.test-logger' version '4.0.0'
+    //id 'com.adarshr.test-logger' version '4.0.0'
 }
 
 repositories {
@@ -59,7 +59,7 @@ checkstyle {
     toolVersion '8.41'
 }
 
-testlogger {
+/*testlogger {
     theme 'standard'
     showExceptions true
     showStackTraces true
@@ -77,4 +77,4 @@ testlogger {
     showSkippedStandardStreams true
     showFailedStandardStreams true
     logLevel 'lifecycle'
-}
+}*/
