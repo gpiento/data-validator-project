@@ -60,14 +60,6 @@ jacocoTestReport {
     }
 }
 
-tasks.register("runGradlew") {
-    doLast {
-        exec {
-            commandLine("bash", "${rootProject.projectDir}/gradlew")
-        }
-    }
-}
-
 checkstyle {
     configFile = file("config/checkstyle/checkstyle.xml")
     toolVersion '8.41'
