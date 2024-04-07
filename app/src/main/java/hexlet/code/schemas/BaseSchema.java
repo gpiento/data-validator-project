@@ -6,7 +6,12 @@ import java.util.function.Predicate;
 
 public class BaseSchema<T> {
 
-    private final List<Predicate> predicates = new ArrayList<>();
+    private final List<Predicate> predicates;
+
+    public BaseSchema() {
+
+        predicates = new ArrayList<>();
+    }
 
     public void addPredicate(Predicate predicate) {
 
