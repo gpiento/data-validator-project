@@ -6,7 +6,7 @@
  */
 
 plugins {
-    id 'application'
+    id 'java'
     id 'checkstyle'
     id 'jacoco'
     id "com.adarshr.test-logger" version "4.0.0"
@@ -41,7 +41,7 @@ test {
 }
 
 compileJava {
-    options.release.set(20)
+    options.release.set(21)
 }
 
 jacocoTestReport {
