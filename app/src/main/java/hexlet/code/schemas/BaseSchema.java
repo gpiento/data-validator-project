@@ -13,14 +13,14 @@ public class BaseSchema<T> {
         predicates = new ArrayList<>();
     }
 
-    public void addPredicate(Predicate predicate) {
+    public void addPredicate(final Predicate predicate) {
 
         predicates.add(predicate);
     }
 
-    public boolean isValid(T value) {
+    public boolean isValid(final T value) {
 
-        for (Predicate<T> predicate : predicates) {
+        for (Predicate predicate : predicates) {
             if (!predicate.test(value)) {
                 return false;
             }
