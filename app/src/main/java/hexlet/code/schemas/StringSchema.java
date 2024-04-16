@@ -8,7 +8,9 @@ public class StringSchema extends BaseSchema<String> {
      * @return the updated StringSchema instance
      */
     public StringSchema required() {
-        addPredicate((Object s) -> s != null && !s.toString().isEmpty());
+        addPredicate(value -> value instanceof String string
+                && string.length() > 0);
+//        addPredicate((Object s) -> s != null && !s.toString().isEmpty());
         return this;
     }
 
