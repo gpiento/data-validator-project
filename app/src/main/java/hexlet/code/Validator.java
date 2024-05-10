@@ -12,7 +12,6 @@ public class Validator {
      * @return StringSchema()
      */
     public StringSchema string() {
-
         return new StringSchema();
     }
 
@@ -22,7 +21,6 @@ public class Validator {
      * @return NumberSchema()
      */
     public NumberSchema number() {
-
         return new NumberSchema();
     }
 
@@ -32,7 +30,6 @@ public class Validator {
      * @return MapSchema()
      */
     public MapSchema map() {
-
         return new MapSchema();
     }
 }
