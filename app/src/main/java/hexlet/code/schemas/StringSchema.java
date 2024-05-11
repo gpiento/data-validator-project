@@ -3,38 +3,36 @@ package hexlet.code.schemas;
 public class StringSchema extends BaseSchema<String> {
 
     /**
-     * Ensures that the string value is not null or empty.
+     * Adds a predicate to check if the input String is not null and not empty.
      *
-     * @return the updated StringSchema instance
+     * @return the current StringSchema object
      */
     public StringSchema required() {
-        addPredicate(value -> value instanceof String string
-                && string.length() > 0);
+        addPredicate("required", value -> value != null
+                && !((String) value).isEmpty());
 //        addPredicate((Object s) -> s != null && !s.toString().isEmpty());
         return this;
     }
 
     /**
-     * Ensures that the string value has a minimum length.
+     * Adds a predicate to check if the input String has a minimum length.
      *
-     * @param length the minimum length
-     * @return the updated StringSchema instance
+     * @param length the minimum length of the input String
+     * @return the current StringSchema object
      */
     public StringSchema minLength(final int length) {
-
-        addPredicate((Object s) -> s.toString().length() >= length);
+        addPredicate("minLength", s -> s != null && ((String) s).length() >= length);
         return this;
     }
 
     /**
-     * Ensures that the string value contains the specified substring.
+     * Adds a predicate to check if the input String contains the specified substring.
      *
-     * @param substring the substring to search for
-     * @return the updated StringSchema instance
+     * @param substring the substring to check for in the input String
+     * @return the current StringSchema object
      */
     public StringSchema contains(final String substring) {
-
-        addPredicate((Object s) -> s.toString().contains(substring));
+        addPredicate("contains", s -> s != null && ((String) s).contains(substring));
         return this;
     }
 }
