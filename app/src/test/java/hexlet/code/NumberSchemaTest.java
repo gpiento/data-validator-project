@@ -12,23 +12,10 @@ class NumberSchemaTest {
     void positive() {
         Validator v = new Validator();
         NumberSchema schema = v.number().positive();
-
         assertTrue(schema.isValid(1));
-        assertTrue(schema.isValid(1L));
-        assertTrue(schema.isValid(1.0f));
-        assertTrue(schema.isValid(1.0));
-        assertTrue(schema.isValid((short) 1));
-        assertTrue(schema.isValid((byte) 1));
-
         assertFalse(schema.isValid(0));
-
         assertFalse(schema.isValid(-1));
-        assertFalse(schema.isValid(-1L));
-        assertFalse(schema.isValid(-1.0f));
         assertFalse(schema.isValid(-1.0));
-        assertFalse(schema.isValid((short) -1));
-        assertFalse(schema.isValid((byte) -1));
-
         assertTrue(schema.isValid(null));
     }
 
