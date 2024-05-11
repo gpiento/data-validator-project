@@ -1,46 +1,41 @@
 package hexlet.code.schemas;
 
 import java.util.Objects;
-import java.util.function.Predicate;
 
 public class NumberSchema extends BaseSchema<Number> {
 
     public NumberSchema required() {
-        Predicate<Number> predicate = Objects::nonNull;
-        addPredicate(predicate);
+        addPredicate("required", Objects::nonNull);
+        return this;
+    }
+
+    public NumberSchema range(final int min, final int max) {
+        addPredicate("range", number -> {
+            if (number instanceof Integer) {
+                return (Integer) number >= min && (Integer) number <= max;
+            }
+            return true;
+        });
         return this;
     }
 
     public NumberSchema positive() {
-        Predicate<Number> predicate = number -> {
-            if (number == null) {
-                return true;
-            }
+        addPredicate("positive", number -> {
             if (number instanceof Integer) {
-                return number.intValue() > 0;
-            } else if (number instanceof Long) {
-                return number.longValue() > 0;
-            } else if (number instanceof Float) {
-                return number.floatValue() > 0;
+                return (Integer) number > 0;
             } else if (number instanceof Double) {
-                return number.doubleValue() > 0;
-            } else if (number instanceof Short) {
-                return number.shortValue() > 0;
+                return (Double) number > 0;
+            } else if (number instanceof Float) {
+                return (Float) number > 0;
+            } else if (number instanceof Long) {
+                return (Long) number > 0;
             } else if (number instanceof Byte) {
-                return number.byteValue() > 0;
+                return (Byte) number > 0;
+            } else if (number instanceof Short) {
+                return (Short) number > 0;
             }
-            return false;
-        };
-        addPredicate(predicate);
-        return this;
-    }
-
-    public NumberSchema range(int min, int max) {
-        Predicate<Number> predicate = number ->
-                number == null
-                        || (number.doubleValue() >= min
-                        && number.doubleValue() <= max);
-        addPredicate(predicate);
+            return true;
+        });
         return this;
     }
 }
