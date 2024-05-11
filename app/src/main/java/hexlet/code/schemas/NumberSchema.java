@@ -4,11 +4,23 @@ import java.util.Objects;
 
 public class NumberSchema extends BaseSchema<Number> {
 
+    /**
+     * A description of the entire Java function.
+     *
+     * @return description of return value
+     */
     public NumberSchema required() {
         addPredicate("required", Objects::nonNull);
         return this;
     }
 
+    /**
+     * A description of the entire Java function.
+     *
+     * @param min description of parameter
+     * @param max description of parameter
+     * @return description of return value
+     */
     public NumberSchema range(final int min, final int max) {
         addPredicate("range", number -> {
             if (number instanceof Integer) {
@@ -19,6 +31,11 @@ public class NumberSchema extends BaseSchema<Number> {
         return this;
     }
 
+    /**
+     * A description of the entire Java function.
+     *
+     * @return description of return value
+     */
     public NumberSchema positive() {
         addPredicate("positive", number -> {
             if (number instanceof Integer) {

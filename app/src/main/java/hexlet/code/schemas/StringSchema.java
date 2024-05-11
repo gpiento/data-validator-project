@@ -10,7 +10,6 @@ public class StringSchema extends BaseSchema<String> {
     public StringSchema required() {
         addPredicate("required", value -> value != null
                 && !((String) value).isEmpty());
-//        addPredicate((Object s) -> s != null && !s.toString().isEmpty());
         return this;
     }
 
@@ -21,7 +20,8 @@ public class StringSchema extends BaseSchema<String> {
      * @return the current StringSchema object
      */
     public StringSchema minLength(final int length) {
-        addPredicate("minLength", s -> s != null && ((String) s).length() >= length);
+        addPredicate("minLength", s -> s != null
+                && ((String) s).length() >= length);
         return this;
     }
 
@@ -32,7 +32,8 @@ public class StringSchema extends BaseSchema<String> {
      * @return the current StringSchema object
      */
     public StringSchema contains(final String substring) {
-        addPredicate("contains", s -> s != null && ((String) s).contains(substring));
+        addPredicate("contains", s -> s != null
+                && ((String) s).contains(substring));
         return this;
     }
 }

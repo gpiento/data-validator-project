@@ -9,7 +9,7 @@ public abstract class BaseSchema<T> {
     /**
      * A map of check predicates for validating values.
      */
-    private final HashMap<String, Predicate<Object>> checkPredicates;
+    private final HashMap<String, Predicate<T>> checkPredicates;
 
     protected BaseSchema() {
         checkPredicates = new LinkedHashMap<>();
@@ -21,7 +21,8 @@ public abstract class BaseSchema<T> {
      * @param key       the key for the predicate
      * @param predicate the predicate to be added
      */
-    public final void addPredicate(final String key, final Predicate<Object> predicate) {
+    public final void addPredicate(final String key,
+                                   final Predicate<T> predicate) {
         checkPredicates.put(key, predicate);
     }
 
@@ -31,7 +32,7 @@ public abstract class BaseSchema<T> {
      * @param value the object value to be validated
      * @return true if the value is valid based on all predicates, false otherwise
      */
-    public final boolean isValid(final Object value) {
+    public final boolean isValid(final T value) {
         return checkPredicates
                 .values()
                 .stream()
