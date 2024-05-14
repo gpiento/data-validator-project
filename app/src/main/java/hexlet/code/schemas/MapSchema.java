@@ -3,7 +3,7 @@ package hexlet.code.schemas;
 import java.util.Map;
 import java.util.Objects;
 
-public class MapSchema extends BaseSchema<Object> {
+public class MapSchema extends BaseSchema {
 
     /**
      * Adds a predicate to check if the map is not null.
@@ -27,7 +27,8 @@ public class MapSchema extends BaseSchema<Object> {
     }
 
     /**
-     * Adds a predicate to check the shape of the map based on the provided shape.
+     * Adds a predicate to check the shape of the map based on the provided
+     * shape.
      *
      * @param shape the shape to check against the map
      * @return the current MapSchema object

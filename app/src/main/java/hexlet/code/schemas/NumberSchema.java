@@ -2,7 +2,7 @@ package hexlet.code.schemas;
 
 import java.util.Objects;
 
-public class NumberSchema extends BaseSchema<Number> {
+public class NumberSchema extends BaseSchema {
 
     /**
      * A description of the entire Java function.
