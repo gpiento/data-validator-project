@@ -26,7 +26,8 @@ public class StringSchema extends BaseSchema {
     }
 
     /**
-     * Adds a predicate to check if the input String contains the specified substring.
+     * Adds a predicate to check if the input String contains the specified
+     * substring.
      *
      * @param substring the substring to check for in the input String
      * @return the current StringSchema object
