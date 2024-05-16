@@ -1,6 +1,6 @@
 package hexlet.code.schemas;
 
-public class StringSchema extends BaseSchema {
+public final class StringSchema extends BaseSchema<String> {
 
     /**
      * Adds a predicate to check if the input String is not null and not empty.

@@ -2,7 +2,7 @@ package hexlet.code.schemas;
 
 import java.util.Objects;
 
-public class NumberSchema extends BaseSchema {
+public final class NumberSchema extends BaseSchema<Integer> {
 
     /**
      * A description of the entire Java function.
@@ -22,12 +22,7 @@ public class NumberSchema extends BaseSchema {
      * @return description of return value
      */
     public NumberSchema range(final int min, final int max) {
-        addPredicate("range", number -> {
-            if (number instanceof Integer) {
-                return (Integer) number >= min && (Integer) number <= max;
-            }
-            return true;
-        });
+        addPredicate("range", n -> n >= min && n <= max);
         return this;
     }
 
@@ -37,22 +32,7 @@ public class NumberSchema extends BaseSchema {
      * @return description of return value
      */
     public NumberSchema positive() {
-        addPredicate("positive", number -> {
-            if (number instanceof Integer) {
-                return (Integer) number > 0;
-            } else if (number instanceof Double) {
-                return (Double) number > 0;
-            } else if (number instanceof Float) {
-                return (Float) number > 0;
-            } else if (number instanceof Long) {
-                return (Long) number > 0;
-            } else if (number instanceof Byte) {
-                return (Byte) number > 0;
-            } else if (number instanceof Short) {
-                return (Short) number > 0;
-            }
-            return true;
-        });
+        addPredicate("positive", number -> number > 0);
         return this;
     }
 }

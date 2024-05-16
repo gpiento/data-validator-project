@@ -9,17 +9,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class NumberSchemaTest {
 
     @Test
-    void positive() {
-        Validator v = new Validator();
-        NumberSchema schema = v.number().positive();
-        assertTrue(schema.isValid(1));
-        assertFalse(schema.isValid(0));
-        assertFalse(schema.isValid(-1));
-        assertFalse(schema.isValid(-1.0));
-        assertTrue(schema.isValid(null));
-    }
-
-    @Test
     void required() {
         Validator v = new Validator();
         NumberSchema schema = v.number();
@@ -27,6 +16,16 @@ class NumberSchemaTest {
         schema.required();
         assertTrue(schema.isValid(123));
         assertFalse(schema.isValid(null));
+    }
+
+    @Test
+    void positive() {
+        Validator v = new Validator();
+        NumberSchema schema = v.number().positive();
+        assertTrue(schema.isValid(1));
+        assertFalse(schema.isValid(0));
+        assertFalse(schema.isValid(-1));
+        assertTrue(schema.isValid(null));
     }
 
     @Test

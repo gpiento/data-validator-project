@@ -4,15 +4,12 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.function.Predicate;
 
-public abstract class BaseSchema {
+public abstract class BaseSchema<T> {
     /**
      * A map of check predicates for validating values.
      */
-    private final HashMap<String, Predicate<Object>> checkPredicates;
-
-    protected BaseSchema() {
-        checkPredicates = new LinkedHashMap<>();
-    }
+    private HashMap<String, Predicate<T>>
+            checkPredicates = new LinkedHashMap<>();
 
     /**
      * Adds a predicate to the list of check predicates.
@@ -20,8 +17,7 @@ public abstract class BaseSchema {
      * @param key       the key for the predicate
      * @param predicate the predicate to be added
      */
-    public final void addPredicate(final String key,
-                                   final Predicate<Object> predicate) {
+    public void addPredicate(final String key, final Predicate<T> predicate) {
         checkPredicates.put(key, predicate);
     }
 
@@ -33,7 +29,7 @@ public abstract class BaseSchema {
      * @return true if the value is valid based on all predicates, false
      * otherwise
      */
-    public final boolean isValid(final Object value) {
+    public boolean isValid(final T value) {
         return checkPredicates
                 .values()
                 .stream()

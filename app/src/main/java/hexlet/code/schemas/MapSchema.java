@@ -3,14 +3,14 @@ package hexlet.code.schemas;
 import java.util.Map;
 import java.util.Objects;
 
-public class MapSchema extends BaseSchema {
+public final class MapSchema extends BaseSchema<Map<?, ?>> {
 
     /**
      * Adds a predicate to check if the map is not null.
      *
      * @return the current MapSchema object
      */
-    public final MapSchema required() {
+    public MapSchema required() {
         addPredicate("required", Objects::nonNull);
         return this;
     }
@@ -21,8 +21,8 @@ public class MapSchema extends BaseSchema {
      * @param size the expected size of the map
      * @return the current MapSchema object
      */
-    public final MapSchema sizeof(final int size) {
-        addPredicate("sizeof", map -> ((Map<?, ?>) map).size() == size);
+    public MapSchema sizeof(final int size) {
+        addPredicate("sizeof", map -> map.size() == size);
         return this;
     }
 
@@ -33,12 +33,13 @@ public class MapSchema extends BaseSchema {
      * @param shape the shape to check against the map
      * @return the current MapSchema object
      */
-    public final MapSchema shape(final Map<String, BaseSchema> shape) {
-        addPredicate("shape", map ->
-                shape.entrySet().stream().allMatch(value -> {
-                    Object object = ((Map<?, ?>) map).get(value.getKey());
-                    return value.getValue().isValid(object);
+    public MapSchema shape(final Map<String, BaseSchema<Map<?, ?>>> shape) {
+        addPredicate("shape", predicate ->
+                shape.entrySet().stream().allMatch(entry -> {
+                    Object object = predicate.get(entry.getKey());
+                    return entry.getValue().isValid(object);
                 }));
+
         return this;
     }
 }
