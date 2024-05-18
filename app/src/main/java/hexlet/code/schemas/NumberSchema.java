@@ -2,14 +2,14 @@ package hexlet.code.schemas;
 
 import java.util.function.Predicate;
 
-public final class NumberSchema extends BaseSchema {
+public final class NumberSchema extends BaseSchema<Integer> {
 
     /**
      * Constructs a new instance of the NumberSchema class.
      */
     public NumberSchema() {
-        Predicate<Object> predicate = x -> x instanceof Integer;
-        addPredicate(predicate);
+        Predicate<Integer> predicate = x -> x instanceof Integer;
+        addPredicate("integer", predicate);
     }
 
     /**
@@ -31,7 +31,7 @@ public final class NumberSchema extends BaseSchema {
      */
     public NumberSchema range(final int min, final int max) {
         Predicate<Integer> predicate = n -> n >= min && n <= max;
-        addPredicate(predicate);
+        addPredicate("range", predicate);
         return this;
     }
 
@@ -42,7 +42,7 @@ public final class NumberSchema extends BaseSchema {
      */
     public NumberSchema positive() {
         Predicate<Integer> predicate = n -> n > 0;
-        addPredicate(predicate);
+        addPredicate("positive", predicate);
         return this;
     }
 }

@@ -2,14 +2,14 @@ package hexlet.code.schemas;
 
 import java.util.function.Predicate;
 
-public final class StringSchema extends BaseSchema {
+public final class StringSchema extends BaseSchema<String> {
 
     /**
      * Constructs a new instance of the StringSchema class.
      */
     public StringSchema() {
-        Predicate<Object> predicate = x -> x instanceof String;
-        addPredicate(predicate);
+        Predicate<String> predicate = x -> x instanceof String;
+        addPredicate("string", predicate);
     }
 
     /**
@@ -30,7 +30,7 @@ public final class StringSchema extends BaseSchema {
      */
     public StringSchema minLength(final int length) {
         Predicate<String> predicate = s -> s.length() >= length;
-        addPredicate(predicate);
+        addPredicate("minLength", predicate);
         return this;
     }
 
@@ -43,7 +43,7 @@ public final class StringSchema extends BaseSchema {
      */
     public StringSchema contains(final String substring) {
         Predicate<String> predicate = s -> s.contains(substring);
-        addPredicate(predicate);
+        addPredicate("contains", predicate);
         return this;
     }
 }

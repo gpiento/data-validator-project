@@ -3,14 +3,14 @@ package hexlet.code.schemas;
 import java.util.Map;
 import java.util.function.Predicate;
 
-public final class MapSchema extends BaseSchema {
+public final class MapSchema extends BaseSchema<Map<?, ?>> {
 
     /**
      * Constructs a new instance of the MapSchema class.
      */
     public MapSchema() {
-        Predicate<Object> predicate = x -> x instanceof Map;
-        addPredicate(predicate);
+        Predicate<Map<?, ?>> predicate = x -> x instanceof Map;
+        addPredicate("map", predicate);
     }
 
     /**
@@ -31,7 +31,7 @@ public final class MapSchema extends BaseSchema {
      */
     public MapSchema sizeof(final int size) {
         Predicate<Map<?, ?>> predicate = m -> m.size() == size;
-        addPredicate(predicate);
+        addPredicate("sizeof", predicate);
         return this;
     }
 
@@ -42,17 +42,17 @@ public final class MapSchema extends BaseSchema {
      * @param shape the shape to check against the map
      * @return the current MapSchema object
      */
-    public MapSchema shape(final Map<String, BaseSchema> shape) {
+    public MapSchema shape(final Map<String, BaseSchema<String>> shape) {
         Predicate<Map<?, ?>> predicate = m -> {
-            for (Map.Entry<String, BaseSchema> entry : shape.entrySet()) {
+            for (Map.Entry<String, BaseSchema<String>> entry : shape.entrySet()) {
                 Object object = m.get(entry.getKey());
-                if (!entry.getValue().isValid(object)) {
+                if (!entry.getValue().isValid((String) object)) {
                     return false;
                 }
             }
             return true;
         };
-        addPredicate(predicate);
+        addPredicate("shape", predicate);
         return this;
     }
 }

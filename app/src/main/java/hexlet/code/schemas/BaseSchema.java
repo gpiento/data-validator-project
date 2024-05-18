@@ -1,14 +1,14 @@
 package hexlet.code.schemas;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.function.Predicate;
 
-public class BaseSchema {
+public class BaseSchema<T> {
     /**
      * A map of check predicates for validating values.
      */
-    private final List<Predicate> checkPredicates = new ArrayList<>();
+    private final Map<String, Predicate<T>> checkPredicates = new LinkedHashMap<>();
 
     /**
      * A flag to indicate if the value is required.
@@ -16,12 +16,13 @@ public class BaseSchema {
     private boolean isRequired = false;
 
     /**
-     * Adds a predicate to the list of check predicates.
+     * Adds a predicate to the list of predicates.
      *
+     * @param name      the name of the predicate
      * @param predicate the predicate to be added
      */
-    public final void addPredicate(final Predicate predicate) {
-        checkPredicates.add(predicate);
+    public final void addPredicate(final String name, final Predicate<T> predicate) {
+        checkPredicates.put(name, predicate);
     }
 
     /**
@@ -41,11 +42,11 @@ public class BaseSchema {
      * @return true if the value is valid based on all predicates, false
      * otherwise
      */
-    public boolean isValid(final Object value) {
+    public boolean isValid(final T value) {
         if (value == null || value.equals("")) {
             return !isRequired;
         } else {
-            for (Predicate predicate : checkPredicates) {
+            for (Predicate<T> predicate : checkPredicates.values()) {
                 if (!predicate.test(value)) {
                     return false;
                 }
