@@ -27,10 +27,10 @@ public class BaseSchema {
     /**
      * Sets the required flag.
      *
-     * @param isRequired the required flag value
+     * @param isRequiredFlag the required flag value
      */
-    public final void setRequired(final boolean isRequired) {
-        this.isRequired = isRequired;
+    public final void setRequired(final boolean isRequiredFlag) {
+        this.isRequired = isRequiredFlag;
     }
 
     /**
