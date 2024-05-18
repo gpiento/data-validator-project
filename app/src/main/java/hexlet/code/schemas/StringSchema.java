@@ -1,6 +1,19 @@
 package hexlet.code.schemas;
 
-public final class StringSchema extends BaseSchema<String> {
+import java.util.Objects;
+import java.util.function.Predicate;
+
+public final class StringSchema extends BaseSchema {
+
+    /**
+     * A description of the entire Java function.
+     *
+     * @return description of return value
+     */
+    public StringSchema() {
+        Predicate<Object> predicate = x -> x instanceof String;
+        addPredicate(predicate);
+    }
 
     /**
      * Adds a predicate to check if the input String is not null and not empty.
@@ -8,8 +21,7 @@ public final class StringSchema extends BaseSchema<String> {
      * @return the current StringSchema object
      */
     public StringSchema required() {
-        addPredicate("required", value -> value != null
-                && !((String) value).isEmpty());
+        setRequired(true);
         return this;
     }
 
@@ -20,8 +32,8 @@ public final class StringSchema extends BaseSchema<String> {
      * @return the current StringSchema object
      */
     public StringSchema minLength(final int length) {
-        addPredicate("minLength", s -> s != null
-                && ((String) s).length() >= length);
+        Predicate<String> predicate = s -> s.length() >= length;
+        addPredicate(predicate);
         return this;
     }
 
@@ -33,8 +45,8 @@ public final class StringSchema extends BaseSchema<String> {
      * @return the current StringSchema object
      */
     public StringSchema contains(final String substring) {
-        addPredicate("contains", s -> s != null
-                && ((String) s).contains(substring));
+        Predicate<String> predicate = s -> s.contains(substring);
+        addPredicate(predicate);
         return this;
     }
 }
