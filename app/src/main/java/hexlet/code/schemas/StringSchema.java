@@ -1,14 +1,11 @@
 package hexlet.code.schemas;
 
-import java.util.Objects;
 import java.util.function.Predicate;
 
 public final class StringSchema extends BaseSchema {
 
     /**
-     * A description of the entire Java function.
-     *
-     * @return description of return value
+     * Constructs a new instance of the StringSchema class.
      */
     public StringSchema() {
         Predicate<Object> predicate = x -> x instanceof String;

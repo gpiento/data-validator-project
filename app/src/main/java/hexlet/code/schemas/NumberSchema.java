@@ -1,10 +1,12 @@
 package hexlet.code.schemas;
 
-import java.util.Objects;
 import java.util.function.Predicate;
 
 public final class NumberSchema extends BaseSchema {
 
+    /**
+     * Constructs a new instance of the NumberSchema class.
+     */
     public NumberSchema() {
         Predicate<Object> predicate = x -> x instanceof Integer;
         addPredicate(predicate);

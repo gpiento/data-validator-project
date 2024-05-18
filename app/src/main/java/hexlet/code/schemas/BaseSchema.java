@@ -13,14 +13,14 @@ public class BaseSchema {
     /**
      * A flag to indicate if the value is required.
      */
-    protected boolean isRequired = false;
+    private boolean isRequired = false;
 
     /**
      * Adds a predicate to the list of check predicates.
      *
      * @param predicate the predicate to be added
      */
-    public final void addPredicate(Predicate predicate) {
+    public final void addPredicate(final Predicate predicate) {
         checkPredicates.add(predicate);
     }
 
