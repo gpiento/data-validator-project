@@ -6,9 +6,7 @@ import java.util.function.Predicate;
 public final class MapSchema extends BaseSchema {
 
     /**
-     * A description of the entire Java function.
-     *
-     * @return description of return value
+     * Constructs a new instance of the MapSchema class.
      */
     public MapSchema() {
         Predicate<Object> predicate = x -> x instanceof Map;
