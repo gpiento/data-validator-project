@@ -18,7 +18,7 @@ public final class StringSchema extends BaseSchema<String> {
      * @return the current StringSchema object
      */
     public StringSchema required() {
-        setRequired(true);
+        isRequired = true;
         return this;
     }
 

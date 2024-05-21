@@ -18,7 +18,7 @@ public final class NumberSchema extends BaseSchema<Integer> {
      * @return description of return value
      */
     public NumberSchema required() {
-        setRequired(true);
+        isRequired = true;
         return this;
     }
 

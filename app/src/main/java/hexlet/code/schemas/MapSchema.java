@@ -19,7 +19,7 @@ public final class MapSchema extends BaseSchema<Map<?, ?>> {
      * @return the current MapSchema object
      */
     public MapSchema required() {
-        setRequired(true);
+        isRequired = true;
         return this;
     }
 

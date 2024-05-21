@@ -65,7 +65,6 @@ class StringSchemaTest {
         assertFalse(schema.minLength(3).isValid("what"));
         assertFalse(schema.minLength(6).isValid("fox"));
         assertFalse(schema.minLength(5).isValid(null));
-//        assertTrue(schema.minLength(0).isValid(""));
 
         assertFalse(schema.isValid("what does the fox say"));
         assertFalse(schema.isValid("what"));

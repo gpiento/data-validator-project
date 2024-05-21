@@ -13,7 +13,7 @@ public class BaseSchema<T> {
     /**
      * A flag to indicate if the value is required.
      */
-    private boolean isRequired = false;
+    protected boolean isRequired = false;
 
     /**
      * Adds a predicate to the list of predicates.
@@ -23,15 +23,6 @@ public class BaseSchema<T> {
      */
     public final void addPredicate(final String name, final Predicate<T> predicate) {
         checkPredicates.put(name, predicate);
-    }
-
-    /**
-     * Sets the required flag.
-     *
-     * @param isRequiredFlag the required flag value
-     */
-    public final void setRequired(final boolean isRequiredFlag) {
-        this.isRequired = isRequiredFlag;
     }
 
     /**
