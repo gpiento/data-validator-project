@@ -1,9 +1,6 @@
 .DEFAULT_GOAL := build-run
 .PHONY: build app
 
-setup:
-	./gradlew wrapper --gradle-version 8.6
-
 clean:
 	./gradlew clean
 
@@ -14,9 +11,6 @@ install:
 	./gradlew clean install
 
 run-dist: install
-	@./build/install/app/bin/app
-
-run: install
 	@./build/install/app/bin/app
 
 test:
@@ -31,4 +25,4 @@ lint:
 check-deps:
 	./gradlew dependencyUpdates -Drevision=release
 
-build-run: build install run-dist
+build-run: run-dist
