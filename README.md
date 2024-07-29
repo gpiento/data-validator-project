@@ -2,8 +2,8 @@
 
 [![hexlet-check](https://github.com/gpiento/java-project-78/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/gpiento/java-project-78/actions/workflows/hexlet-check.yml)
 [![GitHub Workflow Status](https://github.com//gpiento/java-project-78/actions/workflows/github-check.yml/badge.svg)](https://github.com/gpiento/java-project-78/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/5409c5fc72a5aacbfc38/maintainability)](https://codeclimate.com/github/gpiento/java-project-78/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/5409c5fc72a5aacbfc38/test_coverage)](https://codeclimate.com/github/gpiento/java-project-78/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/2ac7df0924e229ba1710/maintainability)](https://codeclimate.com/github/gpiento/data-validator-project/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/2ac7df0924e229ba1710/test_coverage)](https://codeclimate.com/github/gpiento/data-validator-project/test_coverage)
 
 A data validator is a library that can be used to check the correctness of any data. There are many such libraries in every language, because almost all programs work with external data that need to be checked for correctness. First of all, we are talking about form data filled in by users. The yup library is taken as a basis for the project.
 
